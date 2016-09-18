@@ -1,4 +1,4 @@
-package ua.in.magentocaller;
+package ua.in.magentocaller.main;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import ua.in.magentocaller.R;
+import ua.in.magentocaller.dao.ResoursSaverImpl;
+import ua.in.magentocaller.interfaces.ResoursSaver;
+import ua.in.magentocaller.res.AppKeys;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                ResoursSaver rs = new ResoursSaverImpl(MainActivity.this);
+                rs.SaveValue(AppKeys.SERVER, "10.0.74.100");
+                rs.SaveValue(AppKeys.PORT, "7878");
+                rs.SaveValue(AppKeys.USER, "alexandr");
+                rs.SaveValue(AppKeys.PASSWORD, "123456");
+                Toast tst = Toast.makeText(MainActivity.this,"it's ok", Toast.LENGTH_SHORT);
+                tst.show();
             }
         });
     }
