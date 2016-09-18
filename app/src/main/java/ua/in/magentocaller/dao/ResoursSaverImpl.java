@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import ua.in.magentocaller.interfaces.ResoursSaver;
-import ua.in.magentocaller.res.AppKeys;
+import ua.obolon.ponovoy.res.AppKeys;
 
 /**
  * Created by Alexander on 18.09.2016.

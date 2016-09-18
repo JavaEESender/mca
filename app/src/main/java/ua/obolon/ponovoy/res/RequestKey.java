@@ -1,4 +1,4 @@
-package ua.in.magentocaller.res;
+package ua.obolon.ponovoy.res;
 
 /**
  * Created by Alexander on 18.09.2016.

@@ -1,6 +1,6 @@
 package ua.in.magentocaller.interfaces;
 
-import ua.in.magentocaller.res.AppKeys;
+import ua.obolon.ponovoy.res.AppKeys;
 
 /**
  * Created by Alexander on 18.09.2016.

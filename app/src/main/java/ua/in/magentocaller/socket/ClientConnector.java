@@ -13,8 +13,8 @@ import ua.in.magentocaller.dao.ResoursSaverImpl;
 import ua.in.magentocaller.interfaces.Call;
 import ua.in.magentocaller.interfaces.Connector;
 import ua.in.magentocaller.interfaces.ResoursSaver;
-import ua.in.magentocaller.res.AppKeys;
-import ua.in.magentocaller.res.RequestKey;
+import ua.obolon.ponovoy.res.AppKeys;
+import ua.obolon.ponovoy.res.RequestKey;
 
 /**
  * Created by Alexander on 18.09.2016.
@@ -37,7 +37,7 @@ public class ClientConnector implements Connector {
     public boolean sendPhoneCall(String phone) {
         ResoursSaver res = new ResoursSaverImpl(context);
 
-        if(res.ReadValue(AppKeys.SERVER).equals(AppKeys.NO_VALUE_AVALABLE.toString()) ||res.ReadValue(AppKeys.PORT).equals(AppKeys.NO_VALUE_AVALABLE.toString())){
+        if(!res.ReadValue(AppKeys.SERVER).equals(AppKeys.NO_VALUE_AVALABLE.toString()) || !res.ReadValue(AppKeys.PORT).equals(AppKeys.NO_VALUE_AVALABLE.toString())){
             host = res.ReadValue(AppKeys.SERVER);
             port = Integer.parseInt(res.ReadValue(AppKeys.PORT));
 

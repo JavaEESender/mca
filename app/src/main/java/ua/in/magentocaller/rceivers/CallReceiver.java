@@ -22,7 +22,7 @@ public class CallReceiver extends BroadcastReceiver {
         if (intent.getAction().equals("android.intent.action.PHONE_STATE")) {
             String phone_state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
             if (phone_state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
-                Log.d("Tim_Call","Calling1");
+                Log.d("Call","Calling1");
                 phoneNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
                 Thread tr = new Thread(new AcceptCall(phoneNumber, context));
                 tr.start();
