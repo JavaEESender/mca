@@ -13,7 +13,7 @@ import java.util.List;
 
 import ua.in.magentocaller.dao.DaoImpl;
 import ua.in.magentocaller.dao.ResoursSaverImpl;
-import ua.obolon.ponovoy.inerfaces.Call;
+import ua.obolon.ponovoy.interfaces.Call;
 import ua.in.magentocaller.interfaces.Connector;
 import ua.in.magentocaller.interfaces.DAO;
 import ua.in.magentocaller.interfaces.ResoursSaver;
@@ -28,7 +28,7 @@ public class ClientConnector implements Connector {
 
     private String host;
     private int port;
-    private String username;
+    private String login;
     private String password;
     private Context context;
 
@@ -43,8 +43,10 @@ public class ClientConnector implements Connector {
         ResoursSaver res = new ResoursSaverImpl(context);
 
         if(!res.ReadValue(AppKeys.SERVER).equals(AppKeys.NO_VALUE_AVALABLE.toString()) || !res.ReadValue(AppKeys.PORT).equals(AppKeys.NO_VALUE_AVALABLE.toString())){
-            host = res.ReadValue(AppKeys.SERVER);
-            port = Integer.parseInt(res.ReadValue(AppKeys.PORT));
+            this.host = res.ReadValue(AppKeys.SERVER);
+            this.port = Integer.parseInt(res.ReadValue(AppKeys.PORT));
+            this.login = res.ReadValue(AppKeys.LOGIN);
+            this.password = res.ReadValue(AppKeys.PASSWORD);
 
             if(isNetworkAvailable()){
                 try {
@@ -52,8 +54,8 @@ public class ClientConnector implements Connector {
                     channel.connect(new InetSocketAddress(host, port));
                     ObjectOutputStream oos = new ObjectOutputStream(channel.socket().getOutputStream());
                     oos.writeObject(RequestKey.CALL_ANDROID);
-                    oos.writeObject(res.ReadValue(AppKeys.LOGIN));
-                    oos.writeObject(res.ReadValue(AppKeys.PASSWORD));
+                    oos.writeObject(login);
+                    oos.writeObject(password);
                     oos.writeObject(phone);
                     channel.close();
                     return true;
@@ -65,9 +67,10 @@ public class ClientConnector implements Connector {
             }else{
                 Log.d("Magento_caller", "No Network Avalable!");
                 DAO dao = new DaoImpl(context);
-                if (res.ReadValue(AppKeys.HAVE_MISSED).equals("NO")){
+                if (!res.ReadValue(AppKeys.HAVE_MISSED).equals("YES")){
                     res.SaveValue(AppKeys.HAVE_MISSED,"YES");
                     Log.d("Magento_caller", "SetFirst ALARM!");
+
                     MissedReceiver msR = new MissedReceiver();
                     msR.SetAlarm(context);
                 }
@@ -83,12 +86,14 @@ public class ClientConnector implements Connector {
     }
 
     @Override
-    public boolean sendMissedCalls(List<Call> calls) {
+    public boolean sendMissedCalls(List<Call> call) {
         ResoursSaver res = new ResoursSaverImpl(context);
 
         if(!res.ReadValue(AppKeys.SERVER).equals(AppKeys.NO_VALUE_AVALABLE.toString()) || !res.ReadValue(AppKeys.PORT).equals(AppKeys.NO_VALUE_AVALABLE.toString())){
-            host = res.ReadValue(AppKeys.SERVER);
-            port = Integer.parseInt(res.ReadValue(AppKeys.PORT));
+            this.host = res.ReadValue(AppKeys.SERVER);
+            this.port = Integer.parseInt(res.ReadValue(AppKeys.PORT));
+            this.login = res.ReadValue(AppKeys.LOGIN);
+            this.password = res.ReadValue(AppKeys.PASSWORD);
 
             if(isNetworkAvailable()){
                 try {
@@ -98,7 +103,7 @@ public class ClientConnector implements Connector {
                     oos.writeObject(RequestKey.MISSED_CALLS);
                     oos.writeObject(res.ReadValue(AppKeys.LOGIN));
                     oos.writeObject(res.ReadValue(AppKeys.PASSWORD));
-                    oos.writeObject(calls);
+                    oos.writeObject(call);
                     channel.close();
                     return true;
                 } catch (IOException e) {

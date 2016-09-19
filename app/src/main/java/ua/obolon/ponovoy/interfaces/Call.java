@@ -1,4 +1,4 @@
-package ua.obolon.ponovoy.inerfaces;
+package ua.obolon.ponovoy.interfaces;
 
 /**
  * Created by Alexander on 18.09.2016.

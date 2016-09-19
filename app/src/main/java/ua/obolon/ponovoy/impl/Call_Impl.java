@@ -1,11 +1,13 @@
 package ua.obolon.ponovoy.impl;
 
-import ua.obolon.ponovoy.inerfaces.Call;
+import java.io.Serializable;
+
+import ua.obolon.ponovoy.interfaces.Call;
 
 /**
  * Created by Alexander on 18.09.2016.
  */
-public class Call_Impl implements Call {
+public class Call_Impl implements Call, Serializable {
 
     private String number;
     private long date;
@@ -30,24 +32,5 @@ public class Call_Impl implements Call {
     @Override
     public String getNumber() {
         return this.number;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Call_Impl call_ = (Call_Impl) o;
-
-        if (date != call_.date) return false;
-        return number != null ? number.equals(call_.number) : call_.number == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = number != null ? number.hashCode() : 0;
-        result = 31 * result + (int) (date ^ (date >>> 32));
-        return result;
     }
 }

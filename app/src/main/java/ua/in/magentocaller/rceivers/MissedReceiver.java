@@ -43,38 +43,25 @@ public class MissedReceiver extends BroadcastReceiver {
           }else{
               CancelAlarm(context);
           }
-    }
+        }
     }
 
     public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) cont.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        Log.d("Magento_caller", "Net_info - " + netInfo + "AVALABLE ----- " + netInfo.isConnectedOrConnecting());
         return netInfo != null && netInfo.isAvailable();
     }
 
-
-
     public void SetAlarm(Context context) {
-
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
         Intent intent = new Intent(context, MissedReceiver.class);
-
         intent.putExtra(ONE_TIME, Boolean.FALSE); // Задаем параметр интента
-
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
-
         // Устанавливаем интервал срабатывания в 10 секунд.
-
         Log.d("Magento_caller", "SetAlarm");
-
         am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 10, pi);
-
     }
-
-
 
     public void CancelAlarm(Context context) {
         Intent intent = new Intent(context, MissedReceiver.class);
@@ -82,6 +69,5 @@ public class MissedReceiver extends BroadcastReceiver {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Log.d("Magento_caller", "CancelALARM");
         alarmManager.cancel(sender);
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ua.obolon.ponovoy.inerfaces.Call;
+import ua.obolon.ponovoy.interfaces.Call;
 import ua.in.magentocaller.interfaces.DAO;
 import ua.obolon.ponovoy.impl.Call_Impl;
 
@@ -51,7 +51,7 @@ public class DaoImpl  extends SQLiteOpenHelper implements DAO {
 
     @Override
     public List<Call> getAllMissed() {
-        List<Call> list = new ArrayList<>();
+        List<Call> list = new ArrayList<Call>();
         SQLiteDatabase dataBase = this.getWritableDatabase();
         Cursor cursor = dataBase.query("calls", null, null, null, null, null, null);
         if (cursor.moveToFirst()){
