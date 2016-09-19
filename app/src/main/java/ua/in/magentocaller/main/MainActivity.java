@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import ua.in.magentocaller.R;
@@ -16,6 +17,12 @@ import ua.obolon.ponovoy.res.AppKeys;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText server;
+    EditText port;
+    EditText login;
+    EditText password;
+    ResoursSaver rs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,16 +30,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        rs = new ResoursSaverImpl(MainActivity.this);
+        server = (EditText) findViewById(R.id.editTextServer);
+        port = (EditText) findViewById(R.id.editTextPort);
+        login = (EditText) findViewById(R.id.editTextLogin);
+        password = (EditText) findViewById(R.id.editTextPassword);
+
+        server.setText(rs.ReadValue(AppKeys.SERVER));
+        port.setText(rs.ReadValue(AppKeys.PORT));
+        login.setText(rs.ReadValue(AppKeys.LOGIN));
+        password.setText(rs.ReadValue(AppKeys.PASSWORD));
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ResoursSaver rs = new ResoursSaverImpl(MainActivity.this);
-                rs.SaveValue(AppKeys.SERVER, "10.0.74.100");
-                rs.SaveValue(AppKeys.PORT, "7878");
-                rs.SaveValue(AppKeys.USER, "alexandr");
-                rs.SaveValue(AppKeys.PASSWORD, "123456");
-                Toast tst = Toast.makeText(MainActivity.this,"it's ok", Toast.LENGTH_SHORT);
+                rs.SaveValue(AppKeys.SERVER, server.getText().toString());
+                rs.SaveValue(AppKeys.PORT, port.getText().toString());
+                rs.SaveValue(AppKeys.LOGIN, login.getText().toString());
+                rs.SaveValue(AppKeys.PASSWORD, password.getText().toString());
+                Toast tst = Toast.makeText(MainActivity.this,"All Saved", Toast.LENGTH_SHORT);
                 tst.show();
             }
         });

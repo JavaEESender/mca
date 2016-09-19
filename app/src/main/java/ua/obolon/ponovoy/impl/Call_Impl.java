@@ -1,6 +1,6 @@
-package ua.in.magentocaller.pojo;
+package ua.obolon.ponovoy.impl;
 
-import ua.in.magentocaller.interfaces.Call;
+import ua.obolon.ponovoy.inerfaces.Call;
 
 /**
  * Created by Alexander on 18.09.2016.

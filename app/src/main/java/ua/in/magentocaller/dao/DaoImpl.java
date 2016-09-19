@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ua.in.magentocaller.interfaces.Call;
+import ua.obolon.ponovoy.inerfaces.Call;
 import ua.in.magentocaller.interfaces.DAO;
-import ua.in.magentocaller.pojo.Call_Impl;
+import ua.obolon.ponovoy.impl.Call_Impl;
 
 /**
  * Created by Alexander on 18.09.2016.
