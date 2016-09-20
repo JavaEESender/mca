@@ -1,4 +1,4 @@
-package ua.in.magentocaller.rceivers;
+package ua.obolon.ponovoy.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import ua.in.magentocaller.main.AcceptCall;
+import ua.obolon.ponovoy.main.AcceptCall;
 
 /**
  * Created by Alexander on 18.09.2016.

@@ -1,9 +1,9 @@
-package ua.in.magentocaller.main;
+package ua.obolon.ponovoy.main;
 
 import android.content.Context;
 
-import ua.in.magentocaller.interfaces.Connector;
-import ua.in.magentocaller.socket.ClientConnector;
+import ua.obolon.ponovoy.interfaces.Connector;
+import ua.obolon.ponovoy.socket.ClientConnector;
 
 /**
  * Created by Alexander on 18.09.2016.

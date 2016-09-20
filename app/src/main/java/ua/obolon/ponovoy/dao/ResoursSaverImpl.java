@@ -1,9 +1,9 @@
-package ua.in.magentocaller.dao;
+package ua.obolon.ponovoy.dao;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import ua.in.magentocaller.interfaces.ResoursSaver;
+import ua.obolon.ponovoy.interfaces.ResoursSaver;
 import ua.obolon.ponovoy.res.AppKeys;
 
 /**

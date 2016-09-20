@@ -1,4 +1,4 @@
-package ua.in.magentocaller.interfaces;
+package ua.obolon.ponovoy.interfaces;
 
 import java.util.List;
 

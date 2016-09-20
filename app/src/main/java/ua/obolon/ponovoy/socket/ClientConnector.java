@@ -1,4 +1,4 @@
-package ua.in.magentocaller.socket;
+package ua.obolon.ponovoy.socket;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,13 +11,13 @@ import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
 import java.util.List;
 
-import ua.in.magentocaller.dao.DaoImpl;
-import ua.in.magentocaller.dao.ResoursSaverImpl;
+import ua.obolon.ponovoy.dao.DaoImpl;
+import ua.obolon.ponovoy.dao.ResoursSaverImpl;
 import ua.obolon.ponovoy.interfaces.Call;
-import ua.in.magentocaller.interfaces.Connector;
-import ua.in.magentocaller.interfaces.DAO;
-import ua.in.magentocaller.interfaces.ResoursSaver;
-import ua.in.magentocaller.rceivers.MissedReceiver;
+import ua.obolon.ponovoy.interfaces.Connector;
+import ua.obolon.ponovoy.interfaces.DAO;
+import ua.obolon.ponovoy.interfaces.ResoursSaver;
+import ua.obolon.ponovoy.receivers.MissedReceiver;
 import ua.obolon.ponovoy.res.AppKeys;
 import ua.obolon.ponovoy.res.RequestKey;
 

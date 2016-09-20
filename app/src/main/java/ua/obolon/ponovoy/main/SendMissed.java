@@ -1,13 +1,13 @@
-package ua.in.magentocaller.main;
+package ua.obolon.ponovoy.main;
 
 import android.content.Context;
 import android.util.Log;
 
-import ua.in.magentocaller.dao.DaoImpl;
-import ua.in.magentocaller.dao.ResoursSaverImpl;
-import ua.in.magentocaller.interfaces.DAO;
-import ua.in.magentocaller.interfaces.ResoursSaver;
-import ua.in.magentocaller.socket.ClientConnector;
+import ua.obolon.ponovoy.dao.DaoImpl;
+import ua.obolon.ponovoy.dao.ResoursSaverImpl;
+import ua.obolon.ponovoy.interfaces.DAO;
+import ua.obolon.ponovoy.interfaces.ResoursSaver;
+import ua.obolon.ponovoy.socket.ClientConnector;
 import ua.obolon.ponovoy.res.AppKeys;
 
 /**
@@ -27,6 +27,8 @@ public class SendMissed implements Runnable{
         DAO dao = new DaoImpl(context);
         if(client.sendMissedCalls(dao.getAllMissed())){
             Log.d("Magento_caller", "SendMissed to server");
+            dao.clearMissed();
+            Log.d("Magento_caller", "Clear Missed");
             ResoursSaver rs = new ResoursSaverImpl(context);
             rs.SaveValue(AppKeys.HAVE_MISSED, "NO");
         }

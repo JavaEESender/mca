@@ -1,4 +1,4 @@
-package ua.in.magentocaller.interfaces;
+package ua.obolon.ponovoy.interfaces;
 
 import ua.obolon.ponovoy.res.AppKeys;
 
