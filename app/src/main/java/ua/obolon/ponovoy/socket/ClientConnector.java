@@ -51,7 +51,8 @@ public class ClientConnector implements Connector {
             if(isNetworkAvailable()){
                 try {
                     SocketChannel channel = SocketChannel.open();
-                    channel.connect(new InetSocketAddress(host, port));
+//                    channel.connect(new InetSocketAddress(host, port));
+                    channel.socket().connect((new InetSocketAddress(host, port)), 5000);
                     ObjectOutputStream oos = new ObjectOutputStream(channel.socket().getOutputStream());
                     oos.writeObject(RequestKey.CALL_ANDROID);
                     oos.writeObject(login);
@@ -59,8 +60,7 @@ public class ClientConnector implements Connector {
                     oos.writeObject(phone);
                     channel.close();
                     return true;
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
                     Log.d("Magento_caller", "Socket failure");
                     return false;
                 }
@@ -98,7 +98,8 @@ public class ClientConnector implements Connector {
             if(isNetworkAvailable()){
                 try {
                     SocketChannel channel = SocketChannel.open();
-                    channel.connect(new InetSocketAddress(host, port));
+//                    channel.connect(new InetSocketAddress(host, port));
+                    channel.socket().connect((new InetSocketAddress(host, port)), 5000);
                     ObjectOutputStream oos = new ObjectOutputStream(channel.socket().getOutputStream());
                     oos.writeObject(RequestKey.MISSED_CALLS);
                     oos.writeObject(res.ReadValue(AppKeys.LOGIN));
@@ -106,8 +107,7 @@ public class ClientConnector implements Connector {
                     oos.writeObject(call);
                     channel.close();
                     return true;
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
                     Log.d("Magento_caller", "Socket failure");
                     return false;
                 }
