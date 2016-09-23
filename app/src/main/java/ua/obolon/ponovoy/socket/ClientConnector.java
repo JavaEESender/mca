@@ -51,7 +51,6 @@ public class ClientConnector implements Connector {
             if(isNetworkAvailable()){
                 try {
                     SocketChannel channel = SocketChannel.open();
-//                    channel.connect(new InetSocketAddress(host, port));
                     channel.socket().connect((new InetSocketAddress(host, port)), 5000);
                     ObjectOutputStream oos = new ObjectOutputStream(channel.socket().getOutputStream());
                     oos.writeObject(RequestKey.CALL_ANDROID);
@@ -66,16 +65,6 @@ public class ClientConnector implements Connector {
                 }
             }else{
                 Log.d("Magento_caller", "No Network Avalable!");
-                DAO dao = new DaoImpl(context);
-                if (!res.ReadValue(AppKeys.HAVE_MISSED).equals("YES")){
-                    res.SaveValue(AppKeys.HAVE_MISSED,"YES");
-                    Log.d("Magento_caller", "SetFirst ALARM!");
-
-                    MissedReceiver msR = new MissedReceiver();
-                    msR.SetAlarm(context);
-                }
-                dao.addMissedCall(phone);
-                Log.d("Magento_caller", "ADD missed call!");
                 return false;
             }
 
@@ -98,7 +87,6 @@ public class ClientConnector implements Connector {
             if(isNetworkAvailable()){
                 try {
                     SocketChannel channel = SocketChannel.open();
-//                    channel.connect(new InetSocketAddress(host, port));
                     channel.socket().connect((new InetSocketAddress(host, port)), 5000);
                     ObjectOutputStream oos = new ObjectOutputStream(channel.socket().getOutputStream());
                     oos.writeObject(RequestKey.MISSED_CALLS);
