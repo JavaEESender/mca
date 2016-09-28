@@ -67,4 +67,7 @@ public class MissedReceiver extends BroadcastReceiver {
         Log.d("Magento_caller", "CancelALARM");
         alarmManager.cancel(sender);
     }
+
+
+
 }

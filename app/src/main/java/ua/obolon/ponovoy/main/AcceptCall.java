@@ -29,7 +29,7 @@ public class AcceptCall implements Runnable {
 
         Connector connector = new ClientConnector(context);
         if (connector.sendPhoneCall(phone)){
-
+            checkMissed();
         }else{
             addMissed(phone);
         }
@@ -38,15 +38,28 @@ public class AcceptCall implements Runnable {
 
     public void addMissed(String phone){
         DAO dao = new DaoImpl(context);
+        MissedReceiver msR = new MissedReceiver();
         ResoursSaver res = new ResoursSaverImpl(context);
         if (!res.ReadValue(AppKeys.HAVE_MISSED).equals("YES")){
             res.SaveValue(AppKeys.HAVE_MISSED,"YES");
             Log.d("Magento_caller", "SetFirst ALARM!");
-
-            MissedReceiver msR = new MissedReceiver();
-            msR.SetAlarm(context);
         }
+            msR.CancelAlarm(context);
+            msR.SetAlarm(context);
+
         dao.addMissedCall(phone);
         Log.d("Magento_caller", "ADD missed call!");
+    }
+
+    public void checkMissed(){
+        MissedReceiver msR = new MissedReceiver();
+        ResoursSaver res = new ResoursSaverImpl(context);
+        Log.d("Magento_caller", "IF Missed alarm!!");
+        if (res.ReadValue(AppKeys.HAVE_MISSED).equals("YES")){
+            Log.d("Magento_caller", "HAVE MISSED YES");
+                msR.CancelAlarm(context);
+                msR.SetAlarm(context);
+
+        }
     }
 }

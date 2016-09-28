@@ -5,19 +5,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
 import java.util.List;
 
-import ua.obolon.ponovoy.dao.DaoImpl;
 import ua.obolon.ponovoy.dao.ResoursSaverImpl;
 import ua.obolon.ponovoy.interfaces.Call;
 import ua.obolon.ponovoy.interfaces.Connector;
-import ua.obolon.ponovoy.interfaces.DAO;
 import ua.obolon.ponovoy.interfaces.ResoursSaver;
-import ua.obolon.ponovoy.receivers.MissedReceiver;
 import ua.obolon.ponovoy.res.AppKeys;
 import ua.obolon.ponovoy.res.RequestKey;
 
