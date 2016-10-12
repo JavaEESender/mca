@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import ua.magento.caller.R;
 import ua.magento.caller.dao.ResoursSaverImpl;
 import ua.magento.caller.interfaces.ResoursSaver;
