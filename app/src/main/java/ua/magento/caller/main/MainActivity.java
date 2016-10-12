@@ -1,4 +1,4 @@
-package ua.obolon.ponovoy.main;
+package ua.magento.caller.main;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,10 +10,10 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import ua.in.magentocaller.R;
-import ua.obolon.ponovoy.dao.ResoursSaverImpl;
-import ua.obolon.ponovoy.interfaces.ResoursSaver;
-import ua.obolon.ponovoy.res.AppKeys;
+import ua.magento.caller.R;
+import ua.magento.caller.dao.ResoursSaverImpl;
+import ua.magento.caller.interfaces.ResoursSaver;
+import ua.magento.caller.res.AppKeys;
 
 public class MainActivity extends AppCompatActivity {
 

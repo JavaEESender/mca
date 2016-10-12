@@ -1,14 +1,14 @@
-package ua.obolon.ponovoy.main;
+package ua.magento.caller.main;
 
 import android.content.Context;
 import android.util.Log;
 
-import ua.obolon.ponovoy.dao.DaoImpl;
-import ua.obolon.ponovoy.dao.ResoursSaverImpl;
-import ua.obolon.ponovoy.interfaces.DAO;
-import ua.obolon.ponovoy.interfaces.ResoursSaver;
-import ua.obolon.ponovoy.socket.ClientConnector;
-import ua.obolon.ponovoy.res.AppKeys;
+import ua.magento.caller.dao.DaoImpl;
+import ua.magento.caller.dao.ResoursSaverImpl;
+import ua.magento.caller.interfaces.DAO;
+import ua.magento.caller.interfaces.ResoursSaver;
+import ua.magento.caller.socket.ClientConnector;
+import ua.magento.caller.res.AppKeys;
 
 /**
  * Created by Alexander on 19.09.2016.

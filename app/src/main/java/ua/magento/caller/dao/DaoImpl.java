@@ -1,4 +1,4 @@
-package ua.obolon.ponovoy.dao;
+package ua.magento.caller.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,11 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
-import ua.obolon.ponovoy.interfaces.Call;
-import ua.obolon.ponovoy.interfaces.DAO;
-import ua.obolon.ponovoy.impl.Call_Impl;
+import ua.magento.caller.interfaces.Call;
+import ua.magento.caller.interfaces.DAO;
+import ua.magento.caller.impl.Call_Impl;
 
 /**
  * Created by Alexander on 18.09.2016.

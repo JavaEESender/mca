@@ -1,8 +1,8 @@
-package ua.obolon.ponovoy.impl;
+package ua.magento.caller.impl;
 
 import java.io.Serializable;
 
-import ua.obolon.ponovoy.interfaces.Call;
+import ua.magento.caller.interfaces.Call;
 
 /**
  * Created by Alexander on 18.09.2016.

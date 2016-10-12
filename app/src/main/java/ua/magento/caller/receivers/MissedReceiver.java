@@ -1,4 +1,4 @@
-package ua.obolon.ponovoy.receivers;
+package ua.magento.caller.receivers;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -10,10 +10,10 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 
-import ua.obolon.ponovoy.dao.ResoursSaverImpl;
-import ua.obolon.ponovoy.interfaces.ResoursSaver;
-import ua.obolon.ponovoy.main.SendMissed;
-import ua.obolon.ponovoy.res.AppKeys;
+import ua.magento.caller.dao.ResoursSaverImpl;
+import ua.magento.caller.interfaces.ResoursSaver;
+import ua.magento.caller.main.SendMissed;
+import ua.magento.caller.res.AppKeys;
 
 /**
  * Created by Alexander on 18.09.2016.

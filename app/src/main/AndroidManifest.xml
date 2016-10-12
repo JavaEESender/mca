@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ua.in.magentocaller">
+    package="ua.magento.caller">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="ua.obolon.ponovoy.main.MainActivity"
+            android:name="ua.magento.caller.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name="ua.obolon.ponovoy.receivers.CallReceiver"
+            android:name="ua.magento.caller.receivers.CallReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -31,7 +31,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="ua.obolon.ponovoy.receivers.MissedReceiver"
+            android:name="ua.magento.caller.receivers.MissedReceiver"
             android:enabled="true"
             android:exported="true">
 

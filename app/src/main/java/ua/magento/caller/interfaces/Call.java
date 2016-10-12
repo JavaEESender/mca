@@ -1,4 +1,4 @@
-package ua.obolon.ponovoy.interfaces;
+package ua.magento.caller.interfaces;
 
 /**
  * Created by Alexander on 18.09.2016.
